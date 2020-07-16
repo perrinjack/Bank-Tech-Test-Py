@@ -9,10 +9,17 @@ class MockTransaction:
 
 class Test_StatementClass:
     
-    def test_set_balance(self):
-        statement = Statement([MockTransaction, MockTransaction])
+    def test_prepare_header(self):
+        statement = Statement(transactions = [MockTransaction(100, 'debit', 500), MockTransaction(100, 'credit', 500)]) -m 
+        
         assert statement.prepare_header() == 'date || credit || debit || balance '
 
+    def test_statement_class_transaction_list(self):
+        
+        statement = Statement(transactions = [MockTransaction(100, 'debit', 500), MockTransaction(100, 'credit', 500)])
+        print(statement.transactions[0])
+        
+        assert isinstance(statement.transactions[0], MockTransaction)
 
 
 

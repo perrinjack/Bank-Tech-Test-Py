@@ -8,7 +8,7 @@ class Account:
 
     def credit(self,amount):
         self.balance += amount
-        
+        self.transactions.append(self.money_event( amount, 'credit', self.balance))
         
 
     def withdraw(self,amount):

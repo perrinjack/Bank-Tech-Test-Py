@@ -1,6 +1,11 @@
 from lib.account import Account
 
 class TestClass:
+    
     def test_one(self):
-        x = Account()
-        assert x.balance == 0 
+        account = Account()
+        assert account.balance == 0
+
+    def test_two(self):
+        account = Account()
+        assert account.transactions == []

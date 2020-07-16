@@ -6,4 +6,4 @@ class Statement:
 
 
     def prepare_header(self):
-       return 'date || credit || debit || balance '
+        return 'date || credit || debit || balance '

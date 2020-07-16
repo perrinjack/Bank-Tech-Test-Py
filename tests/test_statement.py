@@ -10,7 +10,7 @@ class MockTransaction:
 class Test_StatementClass:
     
     def test_set_balance(self):
-        statement = Statement([1,1])
+        statement = Statement([MockTransaction, MockTransaction])
         assert statement.prepare_header() == 'date || credit || debit || balance '
 
 

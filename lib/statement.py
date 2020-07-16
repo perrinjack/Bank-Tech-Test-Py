@@ -7,3 +7,7 @@ class Statement:
 
     def prepare_header(self):
         return 'date || credit || debit || balance '
+
+
+    def filter(self,transaction):
+        return '|| 100 || || 500 \n"'

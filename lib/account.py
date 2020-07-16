@@ -13,3 +13,4 @@ class Account:
 
     def withdraw(self,amount):
         self.balance -= amount
+        self.transactions.append(self.money_event( amount, 'debit', self.balance))

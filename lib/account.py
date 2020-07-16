@@ -1,6 +1,7 @@
+from lib.transaction import Transaction
 class Account:
 
-    def __init__(self):
+    def __init__(self,transaction = Transaction ):
         self.balance = 0
         self.transactions = []
 

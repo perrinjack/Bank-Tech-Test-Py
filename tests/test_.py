@@ -17,5 +17,5 @@ class TestClass:
 
     def test_four(self):
          account = Account()
-         account.withdraw(amount)
+         account.withdraw(100)
          assert account.balance == -100

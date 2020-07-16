@@ -7,3 +7,6 @@ class Account:
 
     def credit(self,amount):
         self.balance += amount
+
+    def withdraw(self,amount):
+        self.balance -= amount

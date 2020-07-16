@@ -11,5 +11,6 @@ class TestClass:
         assert account.transactions == []
 
     def test_three(self):
-        account = Account().credit(100)
+        account = Account()
+        account.credit(100)
         assert account.balance == 100

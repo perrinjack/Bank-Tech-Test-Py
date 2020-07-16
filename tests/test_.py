@@ -14,3 +14,8 @@ class TestClass:
         account = Account()
         account.credit(100)
         assert account.balance == 100
+
+    def test_four(self):
+         account = Account()
+         account.withdraw(amount)
+         assert account.balance == -100

@@ -4,4 +4,3 @@ class Transaction:
         self.value = value
         self.type = type
         self.current_balance = current_balance
-        

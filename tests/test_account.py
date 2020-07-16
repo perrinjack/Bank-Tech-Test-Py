@@ -27,6 +27,10 @@ class Test_AccountClass:
         account.withdraw(100)
         assert account.balance == -100, "withdrawing from an account should decrease balance by amount"
 
-
-
+    def test_credit_adds_to_transactions(self):
+        account = Account(transaction = MockTransaction)
+        account.credit(100)
+        account.credit(100)
+        assert len(account.transactions) == 2
+        
     

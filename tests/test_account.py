@@ -32,5 +32,13 @@ class Test_AccountClass:
         account.credit(100)
         account.credit(100)
         assert len(account.transactions) == 2
-        
+        assert isinstance(account.transactions[0],MockTransaction)
+
+    def test_debit_adds_to_transactions(self):
+        account = Account(transaction = MockTransaction)
+        account.debit(400)
+        account.debit(400)
+        assert len(account.transactions) == 2
+        assert isinstance(account.transactions[0],MockTransaction)
+    
     

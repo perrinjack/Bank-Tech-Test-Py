@@ -22,9 +22,16 @@ class Test_StatementClass:
             100, 'debit', 500), MockTransaction(100, 'credit', 500)])
         assert isinstance(statement.transactions[0], MockTransaction)
 
-    def test_statement_filters_each_transaction(self):
+    def test_statement_filters_debit_transaction(self):
         statement = Statement(transactions=[MockTransaction(
             100, 'debit', 500), MockTransaction(100, 'credit', 500)])
         assert statement.filter(MockTransaction(
-            100, 'debit', 500)) == '|| 100 || || 500 \n"'
+            100, 'debit', 500)) == "|| 100 || || 500 \n"
+
+    def test_statement_filters_credit_transaction(self):
+        statement = Statement(transactions=[MockTransaction(
+            100, 'debit', 500), MockTransaction(100, 'credit', 500)])
+        assert statement.filter(MockTransaction(
+            100, 'credit', 500)) == "|| || 100 || 500 \n"
+    
 

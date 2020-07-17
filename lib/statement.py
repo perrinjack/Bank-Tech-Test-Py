@@ -10,5 +10,13 @@ class Statement:
         if transaction.type == 'credit':
             return f"|| || {transaction.value} || {transaction.current_balance} \n"
         else:
-            print(transaction.value)
             return f"|| {transaction.value} || || {transaction.current_balance} \n"
+
+    def prepare_body(self):
+        result = [self.filter(t) for t in self.transactions] 
+        return result
+
+    
+
+
+    

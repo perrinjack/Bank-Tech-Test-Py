@@ -37,7 +37,8 @@ class Test_StatementClass:
     def test_prepare_body(self):
         statement = Statement(transactions=[MockTransaction(
             100, 'debit', 500), MockTransaction(100, 'credit', 500)])
-        assert statement.prepare_body == "|| 300 || || 400 \n|| || 100 || 500 \n"
+    
+        assert statement.prepare_body() == ['|| 100 || || 500 \n','|| || 100 || 500 \n']
     
     
 

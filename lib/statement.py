@@ -4,7 +4,7 @@ class Statement:
         self.transactions = transactions
 
     def prepare_header(self):
-        return 'date || credit || debit || balance '
+        return 'date || credit || debit || balance\n'
 
     def filter(self, transaction):
         if transaction.type == 'credit':
@@ -16,7 +16,6 @@ class Statement:
         result = "\n".join([self.filter(t) for t in self.transactions])
         return result
 
-    
-
-
-    
+    def printer(self):
+        print(self.prepare_header)
+        print(self.prepare_body)

@@ -1,5 +1,6 @@
 from lib.statement import Statement
-
+import pytest
+import sys
 
 class MockTransaction:
     def __init__(self, value, type, current_balance):
@@ -14,7 +15,7 @@ class Test_StatementClass:
         statement = Statement(transactions=[MockTransaction(
             100, 'debit', 500), MockTransaction(100, 'credit', 500)])
 
-        assert statement.prepare_header() == 'date || credit || debit || balance '
+        assert statement.prepare_header() == 'date || credit || debit || balance\n'
 
     def test_statement_class_transaction_list(self):
 
@@ -33,12 +34,12 @@ class Test_StatementClass:
             100, 'debit', 500), MockTransaction(100, 'credit', 500)])
         assert statement.filter(MockTransaction(
             100, 'credit', 500)) == "|| || 100 || 500"
-    
+
     def test_prepare_body(self):
         statement = Statement(transactions=[MockTransaction(
             100, 'debit', 500), MockTransaction(100, 'credit', 500)])
 
         assert statement.prepare_body() == '|| 100 || || 500\n|| || 100 || 500'
-    
-    
+
+
 

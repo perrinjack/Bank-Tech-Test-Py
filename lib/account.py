@@ -20,7 +20,7 @@ class Account:
             self.money_event(amount, 'debit', self.balance))
 
     def produce_statement(self):
-        self.statement.printer
+        self.statement(self.transactions).printer()
 
 
 

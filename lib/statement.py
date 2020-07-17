@@ -7,4 +7,7 @@ class Statement:
         return 'date || credit || debit || balance '
 
     def filter(self, transaction):
-        return '|| 100 || || 500 \n"'
+        if transaction.type == 'credit':
+            return "|| || 100 || 500 \n"
+        else:
+            return "|| 100 || || 500 \n"

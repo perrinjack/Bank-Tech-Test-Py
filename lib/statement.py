@@ -8,6 +8,7 @@ class Statement:
 
     def filter(self, transaction):
         if transaction.type == 'credit':
-            return "|| || 100 || 500 \n"
+            return f"|| || {transaction.value} || {transaction.current_balance} \n"
         else:
-            return "|| 100 || || 500 \n"
+            print(transaction.value)
+            return f"|| {transaction.value} || || {transaction.current_balance} \n"

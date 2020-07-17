@@ -24,14 +24,20 @@ class Test_StatementClass:
 
     def test_statement_filters_debit_transaction(self):
         statement = Statement(transactions=[MockTransaction(
-            100, 'debit', 500), MockTransaction(100, 'credit', 500)])
+            100, 'debit', 500), MockTransaction(300, 'credit', 400)])
         assert statement.filter(MockTransaction(
-            100, 'debit', 500)) == "|| 100 || || 500 \n"
+            300, 'debit', 400)) == "|| 300 || || 400 \n"
 
     def test_statement_filters_credit_transaction(self):
         statement = Statement(transactions=[MockTransaction(
             100, 'debit', 500), MockTransaction(100, 'credit', 500)])
         assert statement.filter(MockTransaction(
             100, 'credit', 500)) == "|| || 100 || 500 \n"
+    
+    def test_prepare_body(self):
+        statement = Statement(transactions=[MockTransaction(
+            100, 'debit', 500), MockTransaction(100, 'credit', 500)])
+        assert statement.prepare_body == "|| 300 || || 400 \n|| || 100 || 500 \n"
+    
     
 

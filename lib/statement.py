@@ -8,9 +8,9 @@ class Statement:
 
     def filter(self, transaction):
         if transaction.type == 'credit':
-            return f'|| || {transaction.value} || {transaction.current_balance}'
+            return f'date || || {transaction.value} || {transaction.current_balance}'
         else:
-            return f'|| {transaction.value} || || {transaction.current_balance}'
+            return f'date || {transaction.value} || || {transaction.current_balance}'
 
     def prepare_body(self):
         result = "\n".join([self.filter(t) for t in self.transactions])

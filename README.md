@@ -1,5 +1,40 @@
 # Bank Tech Test for Makers Academy
 
+## How to run
+
+1. Clone this repo.
+
+2. Install dependencies from the command line:
+
+ ```
+pip install pytest
+```
+
+3. Run tests with:
+
+```
+pytest tests/
+```
+
+4. Run the Python3 REPl:
+
+```shell
+python3
+```
+
+5. Import in `Account` with:
+
+```python
+from lib.account import Account
+```
+
+6. Set up your account with:
+
+ ```python
+account = Account()
+ ```
+
+
 ## Specification
 
 ### Requirements
@@ -24,8 +59,11 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
-# Doubles & Mocking in Python
+## Approach 
 
+### Doubles & Mocking in Python
+
+Tests in python are done with the Pytest package. 
 ```
 class MockTransaction:
      def __init__(self, value, type, current_balance):
@@ -33,5 +71,6 @@ class MockTransaction:
         self.type = type
         self.current_balance = current_balance
 ```
+
 
 
